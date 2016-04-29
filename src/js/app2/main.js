@@ -14,7 +14,7 @@ define([
                 local: local
             }
         }, [
-            'local/translationSimple', // can be local+'/translationSimple' and no need configuration paths
+            'local/translationSimple' // can be local+'/translationSimple' and no need configuration paths
         ], function(translationsRequire) {
 
             //btns for test RequireJS

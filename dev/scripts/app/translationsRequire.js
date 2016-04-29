@@ -1,28 +1,26 @@
-//dynamic path
-//var path = document.getElementById('websitePath').value;
-var path = '';
+define(['require', 'modules/local'], function (localRequire, local) {
+    return function (resolve) {
+        var websiteLocal = document.getElementById('websiteLocal').value;
+        var websitePath = document.getElementById('websitePath').value;
 
-console.log('1 path: ', path);
-require(['module'], function (module) {
-    path = document.getElementById('websitePath').value;
-    console.log('2 path: ', path);
-    module.config().path = path;
-});
+        //Getting values from DOM perfectly
+        console.log('locale: ', local[websiteLocal]);
+        console.log('websitePath: ', websitePath);
 
-define(
-    [
-        '/' + path + '/translationSimple.js',
-        'modules/local'
-    ],
-
-    function (translations,
-              local) {
-
-        console.log('module path: ', path);
         /*
-         * Get translations with RequireJS
-         * */
-        var webLocal = document.getElementById('websiteLocal').value;
-        return translations[local[webLocal]];
+        * Adding path directly for the sake of a test
+        * */
+        
+        localRequire({
+            paths: {
+                /*local: '/' + websitePath + '/translationSimple'*/
+                local: 'json/translationSimple.js'
+            }
+        }, ['json/translationSimple.js'], function (translations) {
+            console.log('localRequire translations: ', translations['lv-lv']);
+            resolve(translations['lv-lv']);
+            //resolve(translations[locale]);
+        })
     }
-);
+
+});
