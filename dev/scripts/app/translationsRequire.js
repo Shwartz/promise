@@ -5,27 +5,26 @@ define(
     function (
               local) {
         return function (resolve) {
+            /*
+            * Let's pretend we don't know in advance localization
+            * and path to some folder,
+            * therefore getting values from DOM
+            * */
             var websiteLocal = document.getElementById('websiteLocal').value;
             var websitePath = document.getElementById('websitePath').value;
 
-            //Getting values from DOM perfectly
-            console.log('1 locale: ', local[websiteLocal]);
-            console.log('2 websitePath: ', websitePath);
-
             /*
-             * Adding path directly for the sake of a test
-             * */
-
+            * Now we can get necessary file and using any dynamic path
+            * */
             require.config({
                 paths: {
                     translate: '/' + websitePath + '/translationSimple'
-                    /*local: '/json/translationSimple'*/
                 }
             });
 
+
             require(['translate'], function (translations) {
-                console.log('!!!!localRequire translations: ', translations[local[websiteLocal]]);
-                return resolve(translations['lv-lv'])
+                return resolve(translations[local[websiteLocal]])
             })
         }
 

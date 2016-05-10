@@ -1,35 +1,36 @@
 define(
     [
-        /*'app/translationPromise',*/
+        'app/translationPromise',
         'app/translationsRequire'
 
-    ], function (/*TranslationPromise,*/
+    ], function (TranslationPromise,
                  translationsRequire) {
 
-
-        console.log('main.js: translationsRequire: ', translationsRequire);
-
         //el buttons for Promise
-        /*var btnRedA = document.getElementById('btn1');
-         var btnGreenA = document.getElementById('btn2');*/
+        var btnRedA = document.getElementById('btn1');
+        var btnGreenA = document.getElementById('btn2');
 
         //el buttons for RequireJS
         var btnRedB = document.getElementById('btn3');
         var btnGreenB = document.getElementById('btn4');
 
-        /* Translations with Promises*/
-        /*var data = {};
-         TranslationPromise.then(function(data) {
-         btnRedA.textContent = data.phrase1;
-         btnGreenA.textContent = data.phrase2;
-         });
+        /* Translations with Promises, path is known and using as normally would do
+        * */
+        var data = {};
+        TranslationPromise.then(function (data) {
+            btnRedA.textContent = data.phrase1;
+            btnGreenA.textContent = data.phrase2;
+        });
 
-         btnRedA.textContent = data.phrase1 || 'RED';
-         btnGreenA.textContent = data.phrase2 || 'GREEN';*/
+        btnRedA.textContent = data.phrase1 || 'RED';
+        btnGreenA.textContent = data.phrase2 || 'GREEN';
 
-        /* Translations with RequireJS kind of promise async */
+        /*
+        * Translation using RequireJS only
+        * Passing function to translationsRequire Method,
+        * Which will be used only after we find out 'dynamic' path for needed methods
+        **/
         translationsRequire(function (translation) {
-            console.log('!!! main translations: ', translation);
             btnRedB.textContent = translation.phrase1 || 'RED';
             btnGreenB.textContent = translation.phrase2 || 'GREEN';
         });
