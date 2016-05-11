@@ -5,16 +5,20 @@ define(
     ], function (ajax,
                  local) {
         /*
-        * Get translations with Promise
+        * Get translations with standard Promise
         * */
 
         var jsonString;
 
         function translation() {
-            jsonString = jsonString || ajax.get('../json/translations.json');
+            var websiteLocal = document.getElementById('websiteLocal').value;
+            var websitePath = document.getElementById('websitePath').value;
+            var path = '../' + websitePath + '/translations.json';
+
+            jsonString = jsonString || ajax.get(path);
 
             return jsonString.then(function (data) {
-                return JSON.parse(data)[0][local.lv];
+                return JSON.parse(data)[0][local[websiteLocal]];
             });
         }
 
