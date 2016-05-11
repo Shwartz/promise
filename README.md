@@ -7,7 +7,7 @@ Therefore sometimes there is no way to know path for those files in advance.
 This is experiment to see different ways how to implement dynamic path "problem". Also it was good learning path and better understanding on how RequireJS works, how to setup environment.
 
 After [download](https://github.com/Shwartz/promise/archive/master.zip), CD to the same DIR where is Gruntfile.js
-Do 
+
 ```
 npm install
 ```
