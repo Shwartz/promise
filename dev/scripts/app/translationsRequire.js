@@ -9,6 +9,7 @@ define(
             * Let's pretend we don't know in advance localization
             * and path to some folder,
             * therefore getting values from DOM
+            * No needs for Promises and Ajax from utils/
             * */
             var websiteLocal = document.getElementById('websiteLocal').value;
             var websitePath = document.getElementById('websitePath').value;
@@ -21,8 +22,7 @@ define(
                     translate: '/' + websitePath + '/translationSimple'
                 }
             });
-
-
+            
             require(['translate'], function (translations) {
                 return resolve(translations[local[websiteLocal]])
             })

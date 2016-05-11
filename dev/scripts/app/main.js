@@ -14,7 +14,7 @@ define(
         var btnRedB = document.getElementById('btn3');
         var btnGreenB = document.getElementById('btn4');
 
-        /* Translations with Promises, path is known and using as normally would do
+        /* Translations with Promises
         * */
         var data = {};
         TranslationPromise.then(function (data) {
