@@ -4,8 +4,8 @@
 For multiple Language Websites sometimes there is one JS file and could be special external files which are added per need.
 Therefore sometimes there is no way to know path for those files in advance.
 
-After download CD to same DIR where is Gruntfile.js
-Do `npm install`
+After [download](https://github.com/Shwartz/promise/archive/master.zip), CD to the same DIR where is Gruntfile.js
+Do ```npm install```
 
 Once npm install all necessary modules use following grunt commands
 
