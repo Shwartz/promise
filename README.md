@@ -30,5 +30,7 @@ Grunt RequireJS will build minified version of JavaScript
 
 After build is done, point browser to DEV or DIST folder.
 There should be 4 buttons which replace hard coded names to new translations.
-Due to the fact, that Promise use Ajax and get file `/json/translations.js` asynchronously it is loaded faster.
-`/json/translationSimple.js` is delivered by using RequireJS request which comes very last and translation happened with noticeable delay.
+
+Due to the fact, that Promise use Ajax and get file `/json/translations.js` asynchronously, it is loaded faster.
+
+File `/json/translationSimple.js` is delivered by using RequireJS request, which comes very last and translation happened with noticeable delay.
