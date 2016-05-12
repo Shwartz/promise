@@ -18,7 +18,7 @@ To build a DEV environment
 grunt dev --target=dev
 ```
 This command will listen to `src/` directory for changes and build/update DEV folder.
-After it will use **watcher** and automatically re-build necessary files to DEV folder
+After it will use **watcher** and listen to changes in SRC folder, and automatically re-build necessary files to DEV folder
 
 To build a DIST environment 
 ```
